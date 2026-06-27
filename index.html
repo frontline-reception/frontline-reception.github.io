@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Frontline Reception — AI Phone Receptionist for Australian Dental Clinics</title>
-<meta name="description" content="Brooke is an AI phone receptionist for Australian dental practices. She answers every call — after hours, at lunch, mid-rush — and books the patient straight into your calendar. Flat AUD pricing, no lock-in." />
+<title>Frontline Reception | AI Phone Receptionist for Dental Clinics</title>
+<meta name="description" content="Brooke is an AI phone receptionist for dental clinics worldwide. She answers every call and books patients straight into your calendar. Flat monthly pricing, no lock-in." />
+
+<!-- Social share preview. Upload your logo as logo.png in the repo root, then replace the URL below with your full domain, e.g. https://frontline-reception.com/logo.png -->
+<meta property="og:title" content="Frontline Reception | AI Phone Receptionist for Dental Clinics" />
+<meta property="og:description" content="Brooke answers every call and books patients straight into your calendar. Flat monthly pricing, no lock-in." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Inline SVG favicon (waveform mark), no extra file needed -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230A2D35'/%3E%3Cg%20fill='%232DD4CE'%3E%3Crect%20x='12'%20y='28'%20width='3'%20height='8'%20rx='1.5'/%3E%3Crect%20x='18'%20y='24'%20width='3'%20height='16'%20rx='1.5'/%3E%3Crect%20x='24'%20y='18'%20width='3'%20height='28'%20rx='1.5'/%3E%3Crect%20x='30'%20y='12'%20width='3'%20height='40'%20rx='1.5'/%3E%3Crect%20x='36'%20y='18'%20width='3'%20height='28'%20rx='1.5'/%3E%3Crect%20x='42'%20y='24'%20width='3'%20height='16'%20rx='1.5'/%3E%3Crect%20x='48'%20y='28'%20width='3'%20height='8'%20rx='1.5'/%3E%3C/g%3E%3C/svg%3E" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --ink:#0B2E2A;
-    --teal:#0E6E62;
-    --teal-deep:#0A4A43;
-    --mint:#DCEFE9;
-    --mint-soft:#EDF7F3;
-    --coral:#FF6A4D;
-    --coral-deep:#E8543A;
-    --paper:#F7FAF8;
+    --navy:#072830;
+    --ink:#0A2D35;
+    --teal:#0FA99B;
+    --teal-deep:#0A7A6F;
+    --cyan:#2DD4CE;
+    --cyan-bright:#3FE3DA;
+    --mint:#D5F0EA;
+    --mint-soft:#EDF8F5;
+    --paper:#F4FAF8;
     --white:#FFFFFF;
-    --muted:#566B66;
-    --line:#D6E4DF;
-    --shadow:0 18px 50px -22px rgba(11,46,42,.35);
+    --muted:#52696B;
+    --line:#D2E6E1;
+    --grad:linear-gradient(135deg,#13B9AB 0%,#2FDAD0 100%);
+    --shadow:0 18px 50px -22px rgba(7,40,48,.40);
+    --glow:0 10px 28px -10px rgba(45,212,206,.6);
     --radius:18px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
   body{
     font-family:"Hanken Grotesk",system-ui,sans-serif;
     color:var(--ink);
@@ -39,44 +53,48 @@
   .mono{font-family:"JetBrains Mono",monospace}
   .wrap{width:min(1140px,92vw);margin-inline:auto}
   section{padding:clamp(60px,9vw,120px) 0}
+  :focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px}
   .eyebrow{
     font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;
     text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:.55em;
   }
   .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal);display:inline-block}
 
+  /* brand mark */
+  .mark{height:30px;width:60px;display:block;flex:none}
+  .brand{display:flex;align-items:center;gap:.55em}
+  .brand-name{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:-.02em;color:var(--ink)}
+  .brand-name .r{color:var(--teal)}
+
   /* buttons */
   .btn{
     display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.98rem;
     padding:.85em 1.4em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;
-    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease, filter .15s ease;
   }
-  .btn-primary{background:var(--coral);color:#3a1206;box-shadow:0 10px 24px -10px rgba(255,106,77,.7)}
-  .btn-primary:hover{background:var(--coral-deep);transform:translateY(-2px)}
+  .btn-primary{background:var(--grad);color:#06242B;box-shadow:var(--glow)}
+  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(45,212,206,.72)}
   .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
   .btn-dark{background:var(--ink);color:#eafdf7}
   .btn-dark:hover{background:var(--teal-deep);transform:translateY(-2px)}
 
   /* header */
-  header{position:sticky;top:0;z-index:60;background:rgba(247,250,248,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:60;background:rgba(244,250,248,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .brand{display:flex;align-items:center;gap:.6em;font-family:"Bricolage Grotesque";font-weight:800;font-size:1.12rem;letter-spacing:-.02em}
-  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,106,77,.18);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(255,106,77,.18)}50%{box-shadow:0 0 0 8px rgba(255,106,77,0)}}
   .nav-links{display:flex;align-items:center;gap:2rem}
   .nav-links a.link{font-size:.95rem;color:var(--muted);font-weight:500}
   .nav-links a.link:hover{color:var(--ink)}
   .nav-cta{display:flex;align-items:center;gap:.8rem}
-  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:.5em .7em;cursor:pointer}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:.5em .7em;cursor:pointer;color:var(--ink)}
 
   /* hero */
   .hero{padding-top:clamp(48px,7vw,88px);position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:
-    radial-gradient(900px 480px at 78% -8%, var(--mint) 0%, transparent 62%);z-index:0}
+    radial-gradient(900px 480px at 78% -8%, rgba(45,212,206,.18) 0%, transparent 60%);z-index:0}
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,68px);align-items:center}
   .hero h1{font-size:clamp(2.5rem,5.4vw,4.1rem);font-weight:800}
-  .hero h1 .accent{color:var(--teal)}
+  .hero h1 .accent{color:var(--teal);background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .hero p.lede{font-size:clamp(1.05rem,1.5vw,1.22rem);color:var(--muted);max-width:30em;margin-top:1.1rem}
   .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
   .hero-trust{margin-top:1.6rem;font-size:.86rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:1.1rem}
@@ -90,7 +108,7 @@
   }
   .cc-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--line)}
   .cc-live{display:flex;align-items:center;gap:.5em;font-family:"JetBrains Mono";font-size:.74rem;letter-spacing:.06em;color:var(--teal-deep)}
-  .cc-live .ld{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:pulse 1.8s infinite}
+  .cc-live .ld{width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 1.8s infinite}
   .cc-num{font-family:"JetBrains Mono";font-size:.74rem;color:var(--muted)}
   .cc-body{padding:16px 4px 4px;display:flex;flex-direction:column;gap:12px}
   .bubble{max-width:84%;padding:.6em .9em;border-radius:14px;font-size:.92rem;line-height:1.4}
@@ -98,19 +116,20 @@
   .bubble.brooke{align-self:flex-end;background:var(--ink);color:#eafdf7;border-bottom-right-radius:5px}
   .bubble small{display:block;font-family:"JetBrains Mono";font-size:.62rem;opacity:.6;margin-bottom:.25em;letter-spacing:.05em}
   .booked{
-    margin-top:6px;display:flex;align-items:center;gap:.7em;background:var(--mint);border:1px solid #BFE2D8;
+    margin-top:6px;display:flex;align-items:center;gap:.7em;background:var(--mint);border:1px solid #B6E4DA;
     border-radius:14px;padding:.8em 1em;font-size:.9rem;font-weight:600;color:var(--teal-deep);
     animation:rise .7s ease both;animation-delay:.4s;
   }
   .booked .chk{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:.8rem;flex:none}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(45,212,206,.20)}50%{box-shadow:0 0 0 8px rgba(45,212,206,0)}}
 
   /* problem strip */
   .strip{background:var(--ink);color:#dff3ee}
   .strip h2{color:#fff;font-size:clamp(1.6rem,3.3vw,2.5rem);max-width:16em}
   .strip p{color:#a9c9c1;max-width:34em;margin-top:1rem;font-size:1.05rem}
   .strip .row{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
-  .strip .stat{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.4rem,6vw,3.8rem);color:var(--coral);line-height:1}
+  .strip .stat{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.4rem,6vw,3.8rem);color:var(--cyan);line-height:1}
   .strip .stat small{display:block;font-family:"Hanken Grotesk";font-weight:500;font-size:.95rem;color:#a9c9c1;margin-top:.6rem;max-width:18em}
 
   /* section heading */
@@ -121,7 +140,7 @@
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-  .step .n{font-family:"JetBrains Mono";font-size:.8rem;color:var(--coral);font-weight:500}
+  .step .n{font-family:"JetBrains Mono";font-size:.8rem;color:var(--teal);font-weight:500}
   .step h3{font-size:1.22rem;margin:.7rem 0 .5rem}
   .step p{color:var(--muted);font-size:.96rem}
 
@@ -130,22 +149,23 @@
   .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .18s ease, box-shadow .18s ease}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
   .card .ic{width:42px;height:42px;border-radius:11px;background:var(--mint);display:grid;place-items:center;margin-bottom:14px;color:var(--teal-deep)}
-  .card.lead{background:var(--mint-soft);border-color:#BFE2D8}
+  .card .ic svg{width:22px;height:22px}
+  .card.lead{background:var(--mint-soft);border-color:#B6E4DA}
   .card h3{font-size:1.12rem;margin-bottom:.4rem}
   .card p{color:var(--muted);font-size:.94rem}
-  .badge-new{display:inline-block;font-family:"JetBrains Mono";font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-deep);background:#ffe7e0;padding:.25em .6em;border-radius:6px;margin-bottom:10px}
+  .badge-new{display:inline-block;font-family:"JetBrains Mono";font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);background:var(--mint);padding:.25em .6em;border-radius:6px;margin-bottom:10px}
 
   /* services */
   .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .svc .card{display:flex;flex-direction:column}
   .tag{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:.3em .65em;border-radius:7px;align-self:flex-start;margin-bottom:14px}
   .tag.live{background:var(--mint);color:var(--teal-deep)}
-  .tag.soon{background:#f0eee9;color:#8a7f6f}
+  .tag.soon{background:#eef1f0;color:#7f8c8a}
 
   /* pricing */
   #pricing{background:linear-gradient(180deg,var(--mint-soft),var(--paper))}
   .founding{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--ink);color:#eafdf7;border-radius:16px;padding:18px 22px;margin-bottom:34px}
-  .founding .fdot{width:10px;height:10px;border-radius:50%;background:var(--coral);animation:pulse 2.4s infinite;flex:none}
+  .founding .fdot{width:10px;height:10px;border-radius:50%;background:var(--cyan);animation:pulse 2.4s infinite;flex:none}
   .founding b{color:#fff}
   .founding span{color:#a9c9c1;font-size:.96rem}
   .price-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:24px}
@@ -161,7 +181,7 @@
   .plan li{display:flex;gap:.65em;font-size:.95rem;color:#33433f}
   .plan li .tick{flex:none;margin-top:.05em}
   .plan .btn{justify-content:center;width:100%;margin-top:auto}
-  .plan.soon{background:#fbfaf7}
+  .plan.soon{background:#fbfdfc}
   .plan.soon .amt{color:var(--muted)}
 
   /* faq */
@@ -173,11 +193,15 @@
   details p{color:var(--muted);margin-top:.8rem;max-width:52em;font-size:1rem}
 
   /* cta band */
-  .band{background:var(--teal-deep);color:#eafdf7;border-radius:26px;padding:clamp(36px,5vw,64px);text-align:center}
+  .band{background:linear-gradient(135deg,#0A2D35 0%,#0A7A6F 100%);color:#eafdf7;border-radius:26px;padding:clamp(36px,5vw,64px);text-align:center}
   .band h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.7rem);max-width:16em;margin-inline:auto}
   .band p{color:#bfe2d8;margin-top:1rem;font-size:1.08rem}
   .band .row{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
   .band .num{font-family:"JetBrains Mono";font-size:1rem;color:#eafdf7;margin-top:1.4rem;letter-spacing:.04em}
+  .band-social{display:flex;gap:.7rem;justify-content:center;margin-top:1.3rem}
+  .band-social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.28);border-radius:10px;display:grid;place-items:center;color:#eafdf7;transition:transform .15s ease, background .15s ease}
+  .band-social a:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+  .band-social svg{width:18px;height:18px}
 
   /* footer */
   footer{padding:56px 0 40px;border-top:1px solid var(--line)}
@@ -186,6 +210,10 @@
   .foot p{color:var(--muted);font-size:.9rem;max-width:24em}
   .foot a.fl{color:var(--muted);font-size:.92rem;display:block;margin-bottom:.5rem}
   .foot a.fl:hover{color:var(--ink)}
+  .social{display:flex;gap:.6rem;margin-top:.9rem}
+  .social a{width:40px;height:40px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;color:var(--muted);transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease}
+  .social a:hover{color:#fff;background:var(--teal);border-color:var(--teal);transform:translateY(-2px)}
+  .social svg{width:19px;height:19px}
   .legal{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
@@ -209,9 +237,47 @@
 </head>
 <body id="top">
 
+<!-- waveform logo mark (defined once, reused via <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3FE3DA"/>
+      <stop offset="1" stop-color="#0E9C8E"/>
+    </linearGradient>
+    <symbol id="wavemark" viewBox="0 0 128 64">
+      <g fill="url(#wg)">
+        <rect x="3" y="30" width="3.4" height="4" rx="1.7"/>
+        <rect x="9" y="28.5" width="3.4" height="7" rx="1.7"/>
+        <rect x="15" y="26.5" width="3.4" height="11" rx="1.7"/>
+        <rect x="21" y="24" width="3.4" height="16" rx="1.7"/>
+        <rect x="27" y="21" width="3.4" height="22" rx="1.7"/>
+        <rect x="33" y="17.5" width="3.4" height="29" rx="1.7"/>
+        <rect x="39" y="14" width="3.4" height="36" rx="1.7"/>
+        <rect x="45" y="10.5" width="3.4" height="43" rx="1.7"/>
+        <rect x="51" y="7.5" width="3.4" height="49" rx="1.7"/>
+        <rect x="57" y="5" width="3.4" height="54" rx="1.7"/>
+        <rect x="63" y="3" width="3.4" height="58" rx="1.7"/>
+        <rect x="69" y="5" width="3.4" height="54" rx="1.7"/>
+        <rect x="75" y="7.5" width="3.4" height="49" rx="1.7"/>
+        <rect x="81" y="10.5" width="3.4" height="43" rx="1.7"/>
+        <rect x="87" y="14" width="3.4" height="36" rx="1.7"/>
+        <rect x="93" y="17.5" width="3.4" height="29" rx="1.7"/>
+        <rect x="99" y="21" width="3.4" height="22" rx="1.7"/>
+        <rect x="105" y="24" width="3.4" height="16" rx="1.7"/>
+        <rect x="111" y="26.5" width="3.4" height="11" rx="1.7"/>
+        <rect x="117" y="28.5" width="3.4" height="7" rx="1.7"/>
+        <rect x="123" y="30" width="3.4" height="4" rx="1.7"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><span class="dot"></span>Frontline Reception</a>
+    <a class="brand" href="#top" aria-label="Frontline Reception home">
+      <svg class="mark" viewBox="0 0 128 64" aria-hidden="true"><use href="#wavemark"/></svg>
+      <span class="brand-name">Frontline <span class="r">Reception</span></span>
+    </a>
     <nav class="nav-links" id="navlinks">
       <a class="link" href="#how">How it works</a>
       <a class="link" href="#features">What Brooke does</a>
@@ -230,9 +296,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="eyebrow">AI voice receptionist · for Australian dental clinics</span>
+      <span class="eyebrow">AI voice receptionist · for dental clinics worldwide</span>
       <h1>Every call answered.<br><span class="accent">Every patient booked.</span></h1>
-      <p class="lede">Brooke is an AI phone receptionist for Australian dental practices. She picks up when your front desk can't — after hours, at lunch, mid-rush — answers the patient's questions, and books them straight into your calendar.</p>
+      <p class="lede">Brooke is an AI phone receptionist for dental practices. She picks up when your front desk can't, after hours, at lunch, or mid-rush, answers the patient's questions, and books them straight into your calendar.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="tel:+61253027360">▶ Hear Brooke answer a call</a>
         <a class="btn btn-ghost" href="#pricing">See pricing</a>
@@ -253,9 +319,9 @@
       <div class="cc-body">
         <div class="bubble brooke"><small>BROOKE</small>Thanks for calling Parkview Dental! How can I help?</div>
         <div class="bubble caller"><small>PATIENT · 9:42 PM</small>Hi, I'd like to book a cleaning.</div>
-        <div class="bubble brooke"><small>BROOKE</small>Of course — what day suits you?</div>
+        <div class="bubble brooke"><small>BROOKE</small>Of course! What day suits you?</div>
         <div class="bubble caller"><small>PATIENT</small>Friday morning if you've got it.</div>
-        <div class="booked"><span class="chk">✓</span><span>Booked — Check-up &amp; Clean · Fri 10:00 AM · added to Google Calendar</span></div>
+        <div class="booked"><span class="chk">✓</span><span>Booked · Check-up &amp; Clean · Fri 10:00 AM · added to Google Calendar</span></div>
       </div>
     </div>
   </div>
@@ -265,12 +331,12 @@
 <section class="strip">
   <div class="wrap row">
     <div class="reveal">
-      <span class="eyebrow" style="color:var(--coral)">The cost of a missed call</span>
+      <span class="eyebrow" style="color:var(--cyan)">The cost of a missed call</span>
       <h2>When no one can pick up, where does the call go?</h2>
-      <p>For most clinics, voicemail — and most callers don't leave one. They just ring the next practice down the road. Every missed call is a patient who booked somewhere else.</p>
+      <p>For most clinics, voicemail. And most callers don't leave one. They just ring the next practice down the road, so every missed call is a patient who booked somewhere else.</p>
     </div>
     <div class="reveal">
-      <div class="stat">Voicemail<small>loses the patient. Brooke answers and books them instead — 24 hours a day.</small></div>
+      <div class="stat">Voicemail<small>loses the patient. Brooke answers and books them instead, 24 hours a day.</small></div>
     </div>
   </div>
 </section>
@@ -284,8 +350,8 @@
       <p>No app for your team to learn. No new software to install. Brooke works alongside the calendar you already use.</p>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="n">01</div><h3>The patient calls</h3><p>Brooke answers in your clinic's name — day or night, weekends, lunch, or while your front desk is flat out.</p></div>
-      <div class="step reveal"><div class="n">02</div><h3>Brooke handles it</h3><p>She takes their details, checks your calendar for a free slot, and books the appointment — in a natural conversation, not a phone tree.</p></div>
+      <div class="step reveal"><div class="n">01</div><h3>The patient calls</h3><p>Brooke answers in your clinic's name, day or night, including weekends, lunch, and while your front desk is flat out.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Brooke handles it</h3><p>She takes their details, checks your calendar for a free slot, and books the appointment in a natural conversation, not a phone tree.</p></div>
       <div class="step reveal"><div class="n">03</div><h3>You're updated</h3><p>The booking lands in your Google Calendar, and every call is logged with a full transcript, duration and outcome.</p></div>
     </div>
   </div>
@@ -297,20 +363,20 @@
     <div class="head reveal">
       <span class="eyebrow">What Brooke does</span>
       <h2>A receptionist that actually finishes the job.</h2>
-      <p>Most AI answering services just take a message. Brooke books the appointment — that's the difference.</p>
+      <p>Most AI answering services just take a message. Brooke books the appointment. That's the difference.</p>
     </div>
     <div class="feat">
       <div class="card lead reveal">
-        <div class="ic">📅</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.2l2.5 2.5 5-5.4"/></svg></div>
         <span class="badge-new">The difference</span>
         <h3>Books appointments directly</h3>
-        <p>Not just a message for your team to chase later — Brooke checks the calendar and locks in the slot on the call.</p>
+        <p>Not just a message for your team to chase later. Brooke checks the calendar and locks in the slot on the call.</p>
       </div>
-      <div class="card reveal"><div class="ic">🕘</div><h3>Answers 24/7</h3><p>After hours, weekends, the lunch break, and every call your front desk can't reach during the rush.</p></div>
-      <div class="card reveal"><div class="ic">📝</div><h3>Logs every call</h3><p>Full transcript, duration and outcome saved automatically, so you never lose track of what was said.</p></div>
-      <div class="card reveal"><div class="ic">🔌</div><h3>Works with what you have</h3><p>Books into your existing Google Calendar. Nothing for your team to install or learn.</p></div>
-      <div class="card reveal"><div class="ic">💬</div><h3>Sounds human</h3><p>Natural, warm conversation — patients get answers, not an automated menu.</p></div>
-      <div class="card reveal"><div class="ic">🇦🇺</div><h3>Built for Australia</h3><p>Local number, Australian-natural phrasing, your timezone, your health-fund and pricing details.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5v-1a7 7 0 0 1 14 0v1"/><rect x="3.3" y="12" width="3.8" height="6.6" rx="1.6"/><rect x="16.9" y="12" width="3.8" height="6.6" rx="1.6"/><path d="M18.8 18.6v.9a2.6 2.6 0 0 1-2.6 2.6H13"/></svg></div><h3>Answers 24/7</h3><p>After hours, weekends, the lunch break, and every call your front desk can't reach during the rush.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></div><h3>Logs every call</h3><p>Full transcript, duration and outcome saved automatically, so you never lose track of what was said.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5l5-5"/><path d="M11 6.8l1.3-1.3a3.6 3.6 0 0 1 5.1 5.1l-1.3 1.3"/><path d="M13 17.2l-1.3 1.3a3.6 3.6 0 0 1-5.1-5.1l1.3-1.3"/></svg></div><h3>Works with what you have</h3><p>Books into your existing Google Calendar. Nothing for your team to install or learn.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a7.5 7.5 0 0 1-10.8 6.7L4.5 19.5l1.4-4.3A7.5 7.5 0 1 1 20.5 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></div><h3>Sounds human</h3><p>Natural, warm conversation, so patients get answers, not an automated menu.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h9M17 8h3"/><circle cx="15" cy="8" r="2.2"/><path d="M4 16h3M11 16h9"/><circle cx="9" cy="16" r="2.2"/></svg></div><h3>Tailored to your clinic</h3><p>Your clinic's name, hours, services and pricing, in a voice that fits your patients, wherever your practice is.</p></div>
     </div>
   </div>
 </section>
@@ -326,13 +392,13 @@
     <div class="svc">
       <div class="card reveal">
         <span class="tag live">Available now</span>
-        <h3>Brooke — AI Receptionist</h3>
+        <h3>Brooke, AI Receptionist</h3>
         <p>24/7 call answering that books patients straight into your calendar and logs every call.</p>
       </div>
       <div class="card reveal">
         <span class="tag soon">Coming soon</span>
         <h3>Local SEO for Dentists</h3>
-        <p>Get your practice to the top when patients nearby search "dentist near me" — Google Business Profile, maps and reviews.</p>
+        <p>Get your practice to the top when patients nearby search "dentist near me," covering Google Business Profile, maps and reviews.</p>
       </div>
       <div class="card reveal">
         <span class="tag soon">Coming soon</span>
@@ -349,26 +415,26 @@
     <div class="head reveal">
       <span class="eyebrow">Pricing</span>
       <h2>Simple, flat pricing. No lock-in.</h2>
-      <p>One clear monthly price. No setup fee, no per-minute charges, cancel any time. Everything on the table — that's how it should be.</p>
+      <p>One clear monthly price. No setup fee, no per-minute charges, cancel any time. Everything on the table, the way it should be.</p>
     </div>
 
     <div class="founding reveal">
       <span class="fdot"></span>
-      <span><b>Now onboarding our first Australian clinics.</b> &nbsp;Founding clients get a reduced monthly rate locked in for 12 months, in exchange for honest feedback and a case study.</span>
+      <span><b>Now onboarding our first clinics.</b> &nbsp;Founding clients get a reduced monthly rate locked in for 12 months, in exchange for honest feedback and a case study.</span>
     </div>
 
     <div class="price-grid">
       <div class="plan feature reveal">
-        <div class="pname">Brooke — AI Receptionist</div>
+        <div class="pname">Brooke, AI Receptionist</div>
         <div class="psub">Your after-hours and overflow front desk.</div>
-        <div class="price"><span class="cur">A$</span><span class="amt">299</span><span class="per">/ month</span></div>
+        <div class="price"><span class="cur">$</span><span class="amt">299</span><span class="per">/ month</span></div>
         <ul>
-          <li><span class="tick">✓</span> 24/7 AI call answering — nights, weekends, lunch, rush</li>
+          <li><span class="tick">✓</span> 24/7 AI call answering across nights, weekends, lunch, and rush</li>
           <li><span class="tick">✓</span> Books appointments into your Google Calendar</li>
           <li><span class="tick">✓</span> Every call logged with full transcript</li>
           <li><span class="tick">✓</span> Your clinic's name, voice, hours and pricing</li>
           <li><span class="tick">✓</span> No setup fee · live in days</li>
-          <li><span class="tick">✓</span> Month-to-month — cancel any time</li>
+          <li><span class="tick">✓</span> Month-to-month, cancel any time</li>
         </ul>
         <a class="btn btn-primary" href="mailto:aj@frontline-reception.com?subject=Brooke%20demo%20for%20my%20clinic">Get started</a>
       </div>
@@ -376,7 +442,7 @@
       <div class="plan soon reveal">
         <div class="pname">Local SEO</div>
         <div class="psub">Get found first when patients search nearby.</div>
-        <div class="price"><span class="cur">from A$</span><span class="amt">499</span><span class="per">/ month</span></div>
+        <div class="price"><span class="cur">from $</span><span class="amt">499</span><span class="per">/ month</span></div>
         <ul>
           <li><span class="tick">✓</span> Google Business Profile optimisation</li>
           <li><span class="tick">✓</span> Maps &amp; "dentist near me" rankings</li>
@@ -397,12 +463,12 @@
       <h2>The questions clinics ask first.</h2>
     </div>
     <div class="reveal">
-      <details><summary>Does Brooke replace my front desk?<span class="pm">+</span></summary><p>No. Brooke catches the calls your team can't get to — after hours, weekends, the lunch break, and busy stretches when the phone goes unanswered. Your team still runs the practice; Brooke just makes sure no caller is lost before they can.</p></details>
-      <details><summary>Does it work with my software?<span class="pm">+</span></summary><p>Brooke books into your Google Calendar and logs calls automatically — there's nothing for your team to install or learn. We set up the connection for you.</p></details>
-      <details><summary>How long does setup take?<span class="pm">+</span></summary><p>Days, not weeks. We tailor Brooke to your clinic — your name, hours, services and pricing — and you can hear her before she goes live.</p></details>
-      <details><summary>Is there a contract?<span class="pm">+</span></summary><p>No annual lock-in. It's month-to-month — cancel any time with notice.</p></details>
-      <details><summary>What about patient privacy?<span class="pm">+</span></summary><p>Brooke is built to respect the Australian Privacy Principles. Your bookings stay in your own Google tools, and call data is handled with care.</p></details>
-      <details><summary>Can I hear Brooke before I commit?<span class="pm">+</span></summary><p>Yes — call the demo line on <span class="mono">+61 2 5302 7360</span> and book an appointment like a patient would. That's the whole product in 60 seconds.</p></details>
+      <details><summary>Does Brooke replace my front desk?<span class="pm">+</span></summary><p>No. Brooke catches the calls your team can't get to: after hours, weekends, the lunch break, and busy stretches when the phone goes unanswered. Your team still runs the practice, and Brooke just makes sure no caller is lost.</p></details>
+      <details><summary>Does it work with my software?<span class="pm">+</span></summary><p>Brooke books into your Google Calendar and logs calls automatically, with nothing for your team to install or learn. We set up the connection for you.</p></details>
+      <details><summary>How long does setup take?<span class="pm">+</span></summary><p>Days, not weeks. We tailor Brooke to your clinic: your name, hours, services, and pricing, and you can hear her before she goes live.</p></details>
+      <details><summary>Is there a contract?<span class="pm">+</span></summary><p>No annual lock-in. It's month-to-month, cancel any time with notice.</p></details>
+      <details><summary>What about patient privacy?<span class="pm">+</span></summary><p>Brooke is built with patient privacy in mind and follows data-protection best practices. Your bookings stay in your own Google tools, and call data is handled with care.</p></details>
+      <details><summary>Can I hear Brooke before I commit?<span class="pm">+</span></summary><p>Yes. Call the demo line on <span class="mono">+61 2 5302 7360</span> and book an appointment like a patient would. That's the whole product in 60 seconds.</p></details>
     </div>
   </div>
 </section>
@@ -412,12 +478,20 @@
   <div class="wrap">
     <div class="band reveal">
       <h2>Hear what your patients would hear.</h2>
-      <p>Call the demo line and book an appointment, just like one of your patients. No sign-up, no pitch — just Brooke doing her job.</p>
+      <p>Call the demo line and book an appointment, just like one of your patients. No sign-up, no pitch, just Brooke doing her job.</p>
       <div class="row">
         <a class="btn btn-primary" href="tel:+61253027360">▶ Call the demo line</a>
         <a class="btn btn-ghost" style="border-color:#3f7a70;color:#eafdf7" href="mailto:aj@frontline-reception.com?subject=Brooke%20for%20my%20clinic">Talk to us</a>
       </div>
       <div class="num">+61 2 5302 7360</div>
+      <div class="band-social">
+        <a href="https://www.facebook.com/share/18nR4dmGRJ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.3h2.46l.37-2.86H13.5V9.01c0-.83.23-1.39 1.42-1.39h1.51V5.06A20.3 20.3 0 0 0 14.22 5c-2.18 0-3.67 1.33-3.67 3.77v2.1H8.08v2.86h2.47V21h2.95z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/frontlinereception/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -427,8 +501,11 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="#top"><span class="dot"></span>Frontline Reception</a>
-        <p>AI phone receptionist for independent Australian dental practices. Never send another patient to voicemail.</p>
+        <a class="brand" href="#top" aria-label="Frontline Reception home">
+          <svg class="mark" viewBox="0 0 128 64" aria-hidden="true"><use href="#wavemark"/></svg>
+          <span class="brand-name">Frontline <span class="r">Reception</span></span>
+        </a>
+        <p>AI phone receptionist for independent dental practices worldwide. Never send another patient to voicemail.</p>
       </div>
       <div>
         <a class="fl" href="#how">How it works</a>
@@ -439,10 +516,18 @@
       <div>
         <a class="fl" href="tel:+61253027360">Demo line · +61 2 5302 7360</a>
         <a class="fl" href="mailto:aj@frontline-reception.com">aj@frontline-reception.com</a>
+        <div class="social">
+          <a href="https://www.facebook.com/share/18nR4dmGRJ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.3h2.46l.37-2.86H13.5V9.01c0-.83.23-1.39 1.42-1.39h1.51V5.06A20.3 20.3 0 0 0 14.22 5c-2.18 0-3.67 1.33-3.67 3.77v2.1H8.08v2.86h2.47V21h2.95z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/frontlinereception/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="legal">
-      <span>© <span id="yr"></span> Frontline Reception · Australia</span>
+      <span>© <span id="yr"></span> Frontline Reception</span>
       <span>Built for independent dental practices · No lock-in</span>
     </div>
   </div>
