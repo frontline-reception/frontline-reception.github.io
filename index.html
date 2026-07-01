@@ -6,12 +6,36 @@
 <title>Frontline Reception | AI Phone Receptionist for Dental Clinics</title>
 <meta name="description" content="Brooke is an AI phone receptionist for dental clinics worldwide. She answers every call and books patients straight into your calendar. Flat monthly pricing, no lock-in." />
 
-<!-- Social share preview. Upload your logo as logo.png in the repo root, then replace the URL below with your full domain, e.g. https://frontline-reception.com/logo.png -->
+<!-- Social share preview. Upload your logo as logo.png in the repo root. -->
 <meta property="og:title" content="Frontline Reception | AI Phone Receptionist for Dental Clinics" />
 <meta property="og:description" content="Brooke answers every call and books patients straight into your calendar. Flat monthly pricing, no lock-in." />
-<meta property="og:image" content="logo.png" />
+<meta property="og:image" content="https://frontline-reception.com/logo.png" />
+<meta property="og:url" content="https://frontline-reception.com/" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
+
+<!-- Structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Brooke — AI Phone Receptionist for Dental Clinics",
+  "serviceType": "AI phone answering and appointment booking",
+  "areaServed": "Worldwide",
+  "provider": {
+    "@type": "Organization",
+    "name": "Frontline Reception",
+    "url": "https://frontline-reception.com",
+    "email": "aj@frontline-reception.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "USD",
+    "description": "Flat monthly pricing, month-to-month, no setup fee"
+  }
+}
+</script>
 
 <!-- Inline SVG favicon (waveform mark), no extra file needed -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230A2D35'/%3E%3Cg%20fill='%232DD4CE'%3E%3Crect%20x='12'%20y='28'%20width='3'%20height='8'%20rx='1.5'/%3E%3Crect%20x='18'%20y='24'%20width='3'%20height='16'%20rx='1.5'/%3E%3Crect%20x='24'%20y='18'%20width='3'%20height='28'%20rx='1.5'/%3E%3Crect%20x='30'%20y='12'%20width='3'%20height='40'%20rx='1.5'/%3E%3Crect%20x='36'%20y='18'%20width='3'%20height='28'%20rx='1.5'/%3E%3Crect%20x='42'%20y='24'%20width='3'%20height='16'%20rx='1.5'/%3E%3Crect%20x='48'%20y='28'%20width='3'%20height='8'%20rx='1.5'/%3E%3C/g%3E%3C/svg%3E" />
@@ -124,13 +148,32 @@
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(45,212,206,.20)}50%{box-shadow:0 0 0 8px rgba(45,212,206,0)}}
 
+  /* embedded demo audio (inside call card) */
+  .cc-listen{
+    margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:.9em;
+  }
+  .play-btn{
+    width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;flex:none;
+    background:var(--grad);color:#06242B;display:grid;place-items:center;box-shadow:var(--glow);
+    transition:transform .15s ease, filter .15s ease;
+  }
+  .play-btn:hover{transform:scale(1.06);filter:brightness(1.05)}
+  .play-btn svg{width:18px;height:18px}
+  .cl-k{display:block;font-family:"JetBrains Mono";font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep)}
+  .cl-t{display:block;font-weight:600;font-size:.92rem;color:var(--ink)}
+  .cl-time{margin-left:auto;font-family:"JetBrains Mono";font-size:.72rem;color:var(--muted)}
+  .cc-listen.playing .play-btn{background:var(--ink);color:#eafdf7;box-shadow:none}
+
   /* problem strip */
   .strip{background:var(--ink);color:#dff3ee}
   .strip h2{color:#fff;font-size:clamp(1.6rem,3.3vw,2.5rem);max-width:16em}
   .strip p{color:#a9c9c1;max-width:34em;margin-top:1rem;font-size:1.05rem}
   .strip .row{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
-  .strip .stat{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.4rem,6vw,3.8rem);color:var(--cyan);line-height:1}
-  .strip .stat small{display:block;font-family:"Hanken Grotesk";font-weight:500;font-size:.95rem;color:#a9c9c1;margin-top:.6rem;max-width:18em}
+  .strip .stats-col{display:flex;flex-direction:column;gap:28px}
+  .strip .stat{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.2rem,5.4vw,3.4rem);color:var(--cyan);line-height:1}
+  .strip .stat small{display:block;font-family:"Hanken Grotesk";font-weight:500;font-size:.95rem;color:#a9c9c1;margin-top:.6rem;max-width:20em}
+  .strip .stat .src{font-family:"JetBrains Mono";font-size:.68rem;color:#6f9089;letter-spacing:.04em}
 
   /* section heading */
   .head{max-width:34em;margin-bottom:clamp(34px,5vw,56px)}
@@ -256,6 +299,42 @@
   .form-done h3{font-size:1.3rem}
   .form-done p{color:var(--muted);font-size:.98rem;max-width:24em}
 
+  /* ── in-app browser (Facebook / Instagram / Messenger) ── */
+  .iab-banner{
+    position:fixed;left:12px;right:12px;bottom:12px;z-index:120;
+    background:var(--ink);color:#eafdf7;border-radius:16px;padding:14px 16px;
+    box-shadow:0 18px 40px -14px rgba(7,40,48,.6);
+    display:none;align-items:center;gap:.9em;flex-wrap:wrap;font-size:.9rem;
+  }
+  .iab-banner.show{display:flex;animation:rise .5s ease both}
+  .iab-banner p{flex:1;min-width:200px;color:#cfe8e1;line-height:1.4}
+  .iab-banner p b{color:#fff}
+  .iab-banner .btn{padding:.6em 1.1em;font-size:.88rem}
+  .iab-banner .iab-x{background:none;border:none;color:#8fb1a9;cursor:pointer;font-size:1.1rem;padding:.2em .4em;line-height:1}
+  .iab-tip{width:100%;font-family:"JetBrains Mono";font-size:.74rem;color:#9fc4bb;display:none}
+  .iab-tip.show{display:block}
+
+  /* tel fallback modal */
+  .telmodal{
+    position:fixed;inset:0;z-index:130;display:none;place-items:center;
+    background:rgba(7,40,48,.55);backdrop-filter:blur(4px);padding:20px;
+  }
+  .telmodal.show{display:grid}
+  .tm-card{
+    background:var(--white);border-radius:22px;box-shadow:var(--shadow);
+    padding:30px 26px;max-width:400px;width:100%;text-align:center;animation:rise .35s ease both;
+  }
+  .tm-card h3{font-size:1.3rem;margin-bottom:.4rem}
+  .tm-card .tm-sub{color:var(--muted);font-size:.92rem;line-height:1.5}
+  .tm-num{
+    font-family:"JetBrains Mono";font-size:1.35rem;font-weight:500;color:var(--ink);
+    background:var(--mint-soft);border:1.5px solid var(--line);border-radius:14px;
+    padding:.7em .5em;margin:18px 0 12px;letter-spacing:.03em;user-select:all;
+  }
+  .tm-card .btn{width:100%;justify-content:center;margin-top:8px}
+  .tm-close{background:none;border:none;color:var(--muted);font-size:.9rem;cursor:pointer;margin-top:14px;font-weight:500}
+  .tm-close:hover{color:var(--ink)}
+
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 
@@ -354,17 +433,29 @@
     </div>
 
     <!-- signature call card -->
-    <div class="callcard reveal in" aria-hidden="true">
-      <div class="cc-head">
+    <div class="callcard reveal in">
+      <div class="cc-head" aria-hidden="true">
         <span class="cc-live"><span class="ld"></span> LIVE · Brooke answering</span>
         <span class="cc-num mono">+61 2 5302 7360</span>
       </div>
-      <div class="cc-body">
+      <div class="cc-body" aria-hidden="true">
         <div class="bubble brooke"><small>BROOKE</small>Thanks for calling Parkview Dental! How can I help?</div>
         <div class="bubble caller"><small>PATIENT · 9:42 PM</small>Hi, I'd like to book a cleaning.</div>
         <div class="bubble brooke"><small>BROOKE</small>Of course! What day suits you?</div>
         <div class="bubble caller"><small>PATIENT</small>Friday morning if you've got it.</div>
         <div class="booked"><span class="chk">✓</span><span>Booked · Check-up &amp; Clean · Fri 10:00 AM · added to Google Calendar</span></div>
+      </div>
+      <!-- embedded demo recording — upload demo-call.mp3 to the repo root; block hides itself if the file is missing -->
+      <div class="cc-listen" id="ccListen" hidden>
+        <button class="play-btn" id="demoPlay" aria-label="Play demo call recording">
+          <svg id="playIco" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+        </button>
+        <span>
+          <span class="cl-k">Hear a real call</span>
+          <span class="cl-t">Brooke books a patient</span>
+        </span>
+        <span class="cl-time mono" id="clTime">0:00</span>
+        <audio id="demoAudio" preload="metadata" src="demo-call.mp3"></audio>
       </div>
     </div>
   </div>
@@ -378,8 +469,9 @@
       <h2>When no one can pick up, where does the call go?</h2>
       <p>For most clinics, voicemail. And most callers don't leave one. They just ring the next practice down the road, so every missed call is a patient who booked somewhere else.</p>
     </div>
-    <div class="reveal">
-      <div class="stat">Voicemail<small>loses the patient. Brooke answers and books them instead, 24 hours a day.</small></div>
+    <div class="reveal stats-col">
+      <div class="stat">38%<small>of calls to dental practices go unanswered <span class="src">— Peerlogic, 2026</span></small></div>
+      <div class="stat">62%<small>of callers book with a competitor after a missed call</small></div>
     </div>
   </div>
 </section>
@@ -641,6 +733,26 @@
   </div>
 </footer>
 
+<!-- in-app browser banner (Facebook / Instagram / Messenger) -->
+<div class="iab-banner" id="iabBanner" role="status">
+  <p><b>You're inside Facebook's browser.</b> Call buttons don't work here — open this page in your normal browser to call Brooke.</p>
+  <button class="btn btn-primary" id="iabOpen" type="button">Open in browser</button>
+  <button class="iab-x" id="iabClose" type="button" aria-label="Dismiss">✕</button>
+  <span class="iab-tip" id="iabTip">Tap ··· in the top corner, then "Open in browser".</span>
+</div>
+
+<!-- tel fallback modal for in-app browsers -->
+<div class="telmodal" id="telModal" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+  <div class="tm-card">
+    <h3 id="tmTitle">Call the demo line</h3>
+    <p class="tm-sub">Facebook's built-in browser can't start phone calls. Copy the number and dial it from your phone app.</p>
+    <div class="tm-num" id="tmNum">+61 2 5302 7360</div>
+    <button class="btn btn-primary" id="tmCopy" type="button">Copy number</button>
+    <button class="btn btn-ghost" id="tmBrowser" type="button">Open site in my browser</button>
+    <button class="tm-close" id="tmClose" type="button">Close</button>
+  </div>
+</div>
+
 <script>
   // mobile menu
   var mb=document.getElementById('menuBtn'),nl=document.getElementById('navlinks');
@@ -652,8 +764,112 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
+  // ── in-app browser handling (Facebook / Messenger / Instagram) ──
+  var UA = navigator.userAgent || '';
+  var IN_APP = /FBAN|FBAV|FB_IAB|FBIOS|FB4A|Instagram|Messenger/i.test(UA);
+  var IS_ANDROID = /android/i.test(UA);
+  var DEMO_NUMBER = '+61 2 5302 7360';
+  var DEMO_TEL = 'tel:+61253027360';
+
+  var iabBanner = document.getElementById('iabBanner');
+  var iabTip = document.getElementById('iabTip');
+  var telModal = document.getElementById('telModal');
+
+  function escapeToBrowser(){
+    if (IS_ANDROID){
+      // Android: intent:// URL forces the link out of the in-app webview
+      var u = 'intent://' + location.host + location.pathname + location.search + '#Intent;scheme=https;action=android.intent.action.VIEW;end';
+      location.href = u;
+      // if the intent is blocked, show manual instructions
+      setTimeout(function(){ iabTip.classList.add('show'); }, 1200);
+    } else {
+      // iOS: no programmatic escape — show manual instructions
+      iabTip.classList.add('show');
+    }
+  }
+
+  if (IN_APP){
+    iabBanner.classList.add('show');
+    document.getElementById('iabOpen').addEventListener('click', escapeToBrowser);
+    document.getElementById('iabClose').addEventListener('click', function(){ iabBanner.classList.remove('show'); });
+
+    // intercept every tel: link — in-app webviews silently swallow them
+    document.addEventListener('click', function(e){
+      var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+      if (!a) return;
+      e.preventDefault();
+      // one attempt at the native dialer (works in some webview versions)…
+      location.href = DEMO_TEL;
+      // …then show the fallback so the user is never stuck on a dead button
+      setTimeout(function(){ telModal.classList.add('show'); }, 600);
+    });
+  }
+
+  document.getElementById('tmClose').addEventListener('click', function(){ telModal.classList.remove('show'); });
+  telModal.addEventListener('click', function(e){ if (e.target === telModal) telModal.classList.remove('show'); });
+  document.getElementById('tmBrowser').addEventListener('click', function(){
+    telModal.classList.remove('show');
+    escapeToBrowser();
+    iabBanner.classList.add('show');
+  });
+
+  document.getElementById('tmCopy').addEventListener('click', function(){
+    var btn = this;
+    function done(){ btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy number'; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(DEMO_NUMBER).then(done).catch(fallbackCopy);
+    } else { fallbackCopy(); }
+    function fallbackCopy(){
+      var ta = document.createElement('textarea');
+      ta.value = DEMO_NUMBER; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch(err){}
+      document.body.removeChild(ta);
+    }
+  });
+
+  // ── embedded demo recording ──
+  // Upload demo-call.mp3 to the repo root. The player only appears once the file exists.
+  var listen = document.getElementById('ccListen');
+  var demoAudio = document.getElementById('demoAudio');
+  var demoPlay = document.getElementById('demoPlay');
+  var playIco = document.getElementById('playIco');
+  var clTime = document.getElementById('clTime');
+  var ICO_PLAY = '<path d="M8 5.5v13l11-6.5z"/>';
+  var ICO_PAUSE = '<path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z"/>';
+
+  function fmt(s){ s = Math.floor(s||0); return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2); }
+
+  demoAudio.addEventListener('loadedmetadata', function(){
+    listen.hidden = false;
+    clTime.textContent = fmt(demoAudio.duration);
+  });
+  demoAudio.addEventListener('error', function(){ listen.hidden = true; });
+
+  demoPlay.addEventListener('click', function(){
+    if (demoAudio.paused){
+      demoAudio.play();
+      listen.classList.add('playing');
+      playIco.innerHTML = ICO_PAUSE;
+      demoPlay.setAttribute('aria-label','Pause demo call recording');
+    } else {
+      demoAudio.pause();
+      listen.classList.remove('playing');
+      playIco.innerHTML = ICO_PLAY;
+      demoPlay.setAttribute('aria-label','Play demo call recording');
+    }
+  });
+  demoAudio.addEventListener('timeupdate', function(){
+    if (!demoAudio.paused) clTime.textContent = fmt(demoAudio.currentTime) + ' / ' + fmt(demoAudio.duration);
+  });
+  demoAudio.addEventListener('ended', function(){
+    listen.classList.remove('playing');
+    playIco.innerHTML = ICO_PLAY;
+    clTime.textContent = fmt(demoAudio.duration);
+    demoPlay.setAttribute('aria-label','Play demo call recording');
+  });
+
   // ── contact form ─────────────────────────────────────────────
-  // CHANGE THIS to your n8n webhook URL once the workflow is live:
   var WEBHOOK_URL = "https://frontlinereception.app.n8n.cloud/webhook/dental/contact";
 
   var cf = document.getElementById('contactForm');
